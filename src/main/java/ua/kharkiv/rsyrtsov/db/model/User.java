@@ -1,4 +1,4 @@
-package ua.kharkiv.rsyrtsov.db.entity;
+package ua.kharkiv.rsyrtsov.db.model;
 
 public class User {
     private Long id;

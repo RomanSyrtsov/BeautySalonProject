@@ -1,7 +1,7 @@
 package ua.kharkiv.rsyrtsov.controller;
 
 import ua.kharkiv.rsyrtsov.db.DBManager;
-import ua.kharkiv.rsyrtsov.db.entity.User;
+import ua.kharkiv.rsyrtsov.db.model.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
