@@ -6,6 +6,9 @@ public class User {
     private String password;
     private String email;
     private int roleId;
+    private String firstname;
+    private String lastname;
+    private String phone_number;
 
     public String getEmail() {
         return email;
@@ -45,6 +48,30 @@ public class User {
 
     public void setRoleId(int roleId) {
         this.roleId = roleId;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 
     @Override

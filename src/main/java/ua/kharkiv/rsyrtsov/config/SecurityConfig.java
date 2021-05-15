@@ -27,7 +27,7 @@ import java.util.Set;
             List<String> urlPatterns1 = new ArrayList<String>();
 
             urlPatterns1.add("/record");
-            urlPatterns1.add("/services");
+            //urlPatterns1.add("/services");
 
             mapConfig.put(ROLE_CLIENT, urlPatterns1);
 

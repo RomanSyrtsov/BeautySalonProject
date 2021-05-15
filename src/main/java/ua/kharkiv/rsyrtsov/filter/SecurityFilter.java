@@ -1,6 +1,6 @@
 package ua.kharkiv.rsyrtsov.filter;
 
-import ua.kharkiv.rsyrtsov.controller.UserRoleRequestWrapper;
+import ua.kharkiv.rsyrtsov.controller.authorization.UserRoleRequestWrapper;
 import ua.kharkiv.rsyrtsov.db.Role;
 import ua.kharkiv.rsyrtsov.db.model.User;
 import ua.kharkiv.rsyrtsov.utils.AppUtils;

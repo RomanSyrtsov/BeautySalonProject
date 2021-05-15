@@ -5,11 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBManager {
-    public static final String URL = "jdbc:mysql://localhost:3306/mydb";
+    public static final String URL = "jdbc:mysql://localhost:3306/beautysalon";
     public static final String LOGIN = "root";
-    public static final String PASSWORD = "ad9c72af";
+    public static final String PASSWORD = "root";
 
-    public Connection getConnectionWithDriverManager() throws SQLException {
+    public static Connection getConnectionWithDriverManager() throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -28,7 +28,7 @@ public class DBManager {
      * @param con
      *            Connection to be committed and closed.
      */
-    public void commitAndClose(Connection con){
+    public static void commitAndClose(Connection con){
         try {
             con.commit();
             con.close();

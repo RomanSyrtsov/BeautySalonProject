@@ -1,4 +1,4 @@
-package ua.kharkiv.rsyrtsov.controller;
+package ua.kharkiv.rsyrtsov.controller.authorization;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

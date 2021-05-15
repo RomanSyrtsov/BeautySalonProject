@@ -17,29 +17,37 @@
 
 <jsp:include page="_header.jsp"></jsp:include>
 
-<h3>Login Page</h3>
+
 
 <p style="color: red;">${errorString}</p>
 
-<form method="POST" action="${pageContext.request.contextPath}/login">
-    <input type="hidden" name="redirectId" value="${param.redirectId}" />
+
+
+    <div class="container">
+        <div class="d-flex justify-content-center bd-highlight mb-3">
+        <form method="POST" action="controller?command=processlogin">
+        <h3>Login Page</h3>
+        <input type="hidden" name="redirectId" value="${param.redirectId}" />
     <table border="0">
         <tr>
-            <td>User Name</td>
-            <td><input type="text" name="userName" value= "${user.login}" /> </td>
+            <td><label for="userName">User name</label></td>
+            <td><input id = "userName" class="form-control" type="text" name="userName" value= "${user.login}" /> </td>
         </tr>
         <tr>
-            <td>Password</td>
-            <td><input type="password" name="password" value= "${user.password}" /> </td>
+            <td><label for="password">Password</label></td>
+            <td><input id ="password" class="form-control" type="password" name="password" value= "${user.password}" /> </td>
         </tr>
 
         <tr>
             <td colspan ="2">
                 <input type="submit" value= "Submit" />
-                <a href="${pageContext.request.contextPath}/">Cancel</a>
+                <a href="${pageContext.request.contextPath}/controller?command=/">Cancel</a>
             </td>
         </tr>
     </table>
+
 </form>
+        </div>
+    </div>
 </body>
 </html>

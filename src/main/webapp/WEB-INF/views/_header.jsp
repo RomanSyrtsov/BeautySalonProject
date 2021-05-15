@@ -1,3 +1,4 @@
+<%@ page import="ua.kharkiv.rsyrtsov.db.model.User" %>
 <%--
   Created by IntelliJ IDEA.
   User: farad
@@ -14,17 +15,25 @@
             </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
-                <li><a href="/services" class="nav-link px-2 text-white">Services</a></li>
-                <li><a href="/schedule" class="nav-link px-2 text-white">Schedule</a></li>
+                <li><a href="controller?command=/" class="nav-link px-2 text-secondary">Home</a></li>
+                <li><a href="controller?command=services" class="nav-link px-2 text-white">Services</a></li>
+                <li><a href="controller?command=masters" class="nav-link px-2 text-white">Masters</a></li>
             </ul>
 
             <div class="text-end">
-                <a href="/login" class="btn btn-outline-light me-2">Login</a>
 
-                <a href="${pageContext.request.contextPath}/logout" class="btn btn-outline-light me-2">Logout</a>
+                <%
+                    User user = (User)session.getAttribute("loginedUser");
+                    if(user != null){
+                %>
+                    <a href="controller?command=logout" class="btn btn-outline-light me-2">Logout</a>
+                <%}
+                    if(user == null){
+                %>
 
-                <a href="/register" class="btn btn-warning">Sign-up</a>
+                <a href="controller?command=login" class="btn btn-outline-light me-2">Login</a>
+                <a href="controller?command=register" class="btn btn-outline-light me-2">Sign-up</a>
+                <%}%>
                 <span style="color:red">[ ${loginedUser.login} ]</span>
                 <span style="color:red">${loginedUser.roleId}</span>
             </div>

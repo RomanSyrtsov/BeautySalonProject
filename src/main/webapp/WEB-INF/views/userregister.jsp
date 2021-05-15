@@ -15,7 +15,7 @@
 <jsp:include page="_header.jsp"></jsp:include>
     <div align="center">
         <h1>User register form</h1>
-        <form action="<%= request.getContextPath() %>/register" method="post">
+        <form action="controller?command=registerprocess" method="post">
             <table style="width: 80%">
                 <tr>
                     <td>login</td>
@@ -28,6 +28,18 @@
                 <tr>
                     <td>email</td>
                     <td><input type="text" name="email"/></td>
+                </tr>
+                <tr>
+                    <td>firstname</td>
+                    <td><input type="text" name="firstname"></td>
+                </tr>
+                <tr>
+                    <td>lastname</td>
+                    <td><input type="text" name="lastname"></td>
+                </tr>
+                <tr>
+                    <td>phone number</td>
+                    <td><input type="text" name="phone_number"></td>
                 </tr>
             </table>
             <input type="submit" value="Submit"/>

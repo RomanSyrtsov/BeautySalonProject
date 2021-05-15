@@ -1,4 +1,4 @@
-package ua.kharkiv.rsyrtsov.controller;
+package ua.kharkiv.rsyrtsov.controller.authorization;
 
 import ua.kharkiv.rsyrtsov.db.dao.UserDao;
 import ua.kharkiv.rsyrtsov.db.model.User;
