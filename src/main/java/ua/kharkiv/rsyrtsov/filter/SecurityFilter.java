@@ -28,13 +28,13 @@ public class SecurityFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
 
-        String servletPath = req.getServletPath();
+        String servletPath = req.getServletPath() + "?"+req.getQueryString();
 
         // Информация пользователя сохранена в Session
         // (После успешного входа в систему).
         User loginedUser = AppUtils.getLoginedUser(req.getSession());
 
-        if (servletPath.equals("/login")) {
+        if (servletPath.equals("/controller?command=login")) {
             chain.doFilter(request, response);
             return;
         }

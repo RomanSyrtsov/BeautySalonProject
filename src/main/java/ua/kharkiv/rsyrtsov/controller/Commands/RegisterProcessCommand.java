@@ -30,6 +30,6 @@ public class RegisterProcessCommand extends  Command{
 
         UserDao.registerUser(user);
 
-        return "/WEB-INF/views/mainpage.jsp";
+        return "controller?command=/";
     }
 }

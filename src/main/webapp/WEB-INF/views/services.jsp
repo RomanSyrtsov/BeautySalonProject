@@ -17,7 +17,7 @@
 <body>
     <jsp:include page="_header.jsp"></jsp:include>
     <div class="container mt-5">
-        <form action="controller?command=services" method="POST" >
+        <form action="controller?command=processservices" method="POST" >
             <select class="Filter_By_Masters_Form" name="Sorting">
                 <option value="all" onclick="this.form.submit()"></option>
             <c:forEach items="${masters}"  var="list1">
@@ -33,18 +33,16 @@
                         <h5 class="card-title">${list1.getServiceName()}</h5>
                         <p class="card-text">Price: ${list1.getServicePrice()}</p>
                         <p class="card-text">Time(minutes): ${list1.getServiceTime()}</p>
-                        <a href="#" class="btn btn-primary">Record</a>
+                        <c:if test="${loginedUser != null}">
+                        <form action="controller?command=record_service" method="post">
+                            <input name="Record" type="submit" value="${list1.getId()}"/>
+                        </form>
+                        </c:if>
                     </div>
                 </div>
             </div>
         </c:forEach>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        if ( window.history.replaceState ) {
-            window.history.replaceState( null, null, window.location.href );
-        }
-    </script>
 </body>
 </html>

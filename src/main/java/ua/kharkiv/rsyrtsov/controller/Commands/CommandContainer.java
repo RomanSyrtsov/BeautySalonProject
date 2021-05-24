@@ -19,14 +19,28 @@ public class CommandContainer {
         //commands.put("viewSettings", new ViewSettingsCommand());
         //commands.put("updateSettings", new UpdateSettingsCommand());
         commands.put("/", new MainCommand());
+
+        commands.put("app_localization", new AppLocalizationCommand());
         // client commands
-        commands.put("services", new ServicesListCommand());
-        commands.put("masters", new MastersListCommand());
+        commands.put("services", new ServicesListViewCommand());
+        commands.put("processservices", new ServicesListProcessCommand());
+        commands.put("record_service", new ServicesMakeRecordCommand());
+
+        commands.put("masters", new MastersListViewCommand());
+        commands.put("processmasters", new MasterListProcessCommand());
+
         commands.put("login", new LoginViewCommand());
         commands.put("processlogin", new LoginProcessCommand());
+
         commands.put("logout", new LogoutCommand());
+
         commands.put("register", new RegisterViewCommand());
         commands.put("registerprocess", new RegisterProcessCommand());
+
+        commands.put("record", new RecordViewCommand());
+        commands.put("selectmaster", new RecordMasterScheduleProcessCommand());
+        commands.put("checkRecordTime", new RecordCheckTimeCommand());
+        commands.put("makeRecord",new NewRecordCommand());
 
         // admin commands
         //commands.put("listOrders", new ListOrdersCommand());

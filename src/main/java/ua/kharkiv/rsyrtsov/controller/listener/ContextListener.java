@@ -53,7 +53,7 @@ public class ContextListener {
         // initialize commands container
         // just load class to JVM
         try {
-            Class.forName("ua.kharkov.knure.dkolesnikov.st4example.web.command.CommandContainer");
+            Class.forName("ua.kharkiv.rsyrtsov.controller.Commands.CommandContainer");
         } catch (ClassNotFoundException ex) {
             throw new RuntimeException(ex);
         }

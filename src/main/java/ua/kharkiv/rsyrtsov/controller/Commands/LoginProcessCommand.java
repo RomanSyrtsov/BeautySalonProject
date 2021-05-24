@@ -16,31 +16,19 @@ public class LoginProcessCommand extends Command{
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
         User userAccount = UserDao.findUser(userName, password);
-
+        int clientId = UserDao.getClientIdByLogin(userName);
+        request.getSession().setAttribute("client_id",clientId);
         if (userAccount == null) {
             String errorMessage = "Invalid userName or Password";
 
             request.setAttribute("errorMessage", errorMessage);
 
-            return "/WEB-INF/views/loginView.jsp";
+
+            return "controller?command=login";
         }
 
         AppUtils.storeLoginedUser(request.getSession(), userAccount);
 
-        //
-        int redirectId = -1;
-        try {
-            redirectId = Integer.parseInt(request.getParameter("redirectId"));
-        } catch (Exception e) {
-        }
-        String requestUri = AppUtils.getRedirectAfterLoginUrl(request.getSession(), redirectId);
-        if (requestUri != null) {
-            response.sendRedirect(requestUri);
-        }
-            // По умолчанию после успешного входа в систему
-            // перенаправить на страницу /userInfo
-
-
-        return "/WEB-INF/views/mainpage.jsp";
+        return "controller?command=/";
     }
 }

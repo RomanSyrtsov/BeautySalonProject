@@ -13,12 +13,15 @@ public class UserDao {
             "(login,password,email,role_id,firstname,lastname,phone_number) VALUES" +
             "(?, ?, ?, ?,?,?,?);";
     private static final String SELECT_USER_BY_LOGIN_AND_PASSWORD_SQL = "SELECT * FROM beautysalon.user u WHERE u.login = ? AND u.password = ?";
+    private static final String SELECT_CLIENT_ID_BY_LOGIN = "SELECT client.client_id " +
+            "FROM client INNER JOIN user ON ( client.user_id = user.user_id) " +
+            "WHERE (((user.login)=?));";
 
     public static User findUser(String userName, String password) {
-
+        Connection connection = null;
         User user = new User();
-        try (Connection connection = DBManager.getConnectionWithDriverManager()){
-
+        try{
+            connection = DBManager.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_LOGIN_AND_PASSWORD_SQL);
             preparedStatement.setString(1, userName);
             preparedStatement.setString(2, password);
@@ -33,20 +36,26 @@ public class UserDao {
                 user.setFirstname(rs.getString("firstname"));
                 user.setLastname(rs.getString("lastname"));
                 user.setPhone_number(rs.getString("phone_number"));
-
             }
             rs.close();
             preparedStatement.close();
-            DBManager.commitAndClose(connection);
         } catch (SQLException e) {
+            DBManager.getInstance().rollbackAndClose(connection);
             e.printStackTrace();
+        }finally {
+            DBManager.getInstance().commitAndClose(connection);
+        }
+        if(user.getId()==null){
+            user = null;
         }
         return user;
     }
 
     public static int registerUser(User user){
         int result = 0;
-        try (Connection connection = DBManager.getConnectionWithDriverManager()){
+        Connection connection = null;
+        try{
+            connection = DBManager.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER_SQL);
             preparedStatement.setString(1,user.getLogin());
             preparedStatement.setString(2,user.getPassword());
@@ -58,10 +67,34 @@ public class UserDao {
 
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
-            DBManager.commitAndClose(connection);
             preparedStatement.close();
         } catch (SQLException e) {
+            DBManager.getInstance().rollbackAndClose(connection);
             e.printStackTrace();
+        }finally {
+            DBManager.getInstance().commitAndClose(connection);
+        }
+        return result;
+    }
+
+    public static int getClientIdByLogin(String login){
+        int result = 0;
+        Connection connection = null;
+        try{
+            connection = DBManager.getInstance().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CLIENT_ID_BY_LOGIN);
+            preparedStatement.setString(1,login);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                result = rs.getInt("client_id");
+            }
+            rs.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            DBManager.getInstance().rollbackAndClose(connection);
+            e.printStackTrace();
+        }finally {
+            DBManager.getInstance().commitAndClose(connection);
         }
         return result;
     }

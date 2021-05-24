@@ -1,7 +1,7 @@
 package ua.kharkiv.rsyrtsov.db.model;
 
 public class Master {
-    private Long id;
+    private int id;
     private String firstname;
     private String lastname;
     private String phone_number;
@@ -9,11 +9,11 @@ public class Master {
     private String speciality_name;
     private int user_id;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

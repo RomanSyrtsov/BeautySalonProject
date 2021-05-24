@@ -11,16 +11,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceDao {
-    private static final String SELECT_ALL_SERVICES = "SELECT * FROM beautysalon.service;";
-    private static final String SELECT_SERVICES_BY_MASTER_ID = "SELECT service.service_id, master.master_id, service.service_name, service.service_price, service.service_time, service.speciality_id " +
-            "FROM (specialty INNER JOIN master ON specialty.speciality_id = master.speciality_id) INNER JOIN service ON specialty.speciality_id = service.speciality_id " +
-            "WHERE (((master.master_id)=?));";
+    private static final String SELECT_ALL_SERVICES = "SELECT service.service_id, service_resource.service_name, service.service_price, service.service_time, service.speciality_id " +
+            "FROM service INNER JOIN service_resource ON service.service_id = service_resource.service_id " +
+            "WHERE (((service_resource.locale)=?));";
+    private static final String SELECT_SERVICES_BY_MASTER_ID = "SELECT service.service_id, master.master_id, service_resource.service_name, service.service_price, service.service_time, service.speciality_id " +
+            "FROM ((specialty INNER JOIN master ON specialty.speciality_id = master.speciality_id) INNER JOIN service ON specialty.speciality_id = service.speciality_id) INNER JOIN service_resource ON service.service_id = service_resource.service_id " +
+            "WHERE (((master.master_id)=?) AND ((service_resource.locale)=?));";
 
-    public static List<Service> getAllServices(){
+    public static List<Service> getAllServices(String locale){
         List<Service> services = new ArrayList<>();
-
-        try (Connection connection = DBManager.getConnectionWithDriverManager()) {
+        Connection connection = null;
+        try{
+            connection = DBManager.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_SERVICES);
+            preparedStatement.setString(1,locale);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 Service service = new Service();
@@ -32,19 +36,26 @@ public class ServiceDao {
                 services.add(service);
             }
             rs.close();
-            DBManager.commitAndClose(connection);
+            preparedStatement.close();
+
         } catch (SQLException e) {
+            DBManager.getInstance().rollbackAndClose(connection);
             e.printStackTrace();
+        }finally {
+            DBManager.getInstance().commitAndClose(connection);
         }
 
         return services;
     }
 
-    public static List<Service> getServiceByMasterId(int id){
+    public static List<Service> getServiceByMasterId(int id,String locale){
         List<Service> services = new ArrayList<>();
-        try (Connection connection = DBManager.getConnectionWithDriverManager()){
+        Connection connection = null;
+        try{
+            connection = DBManager.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_SERVICES_BY_MASTER_ID);
             preparedStatement.setInt(1,id);
+            preparedStatement.setString(2,locale);
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
@@ -57,10 +68,12 @@ public class ServiceDao {
                 services.add(service);
             }
             rs.close();
-            DBManager.commitAndClose(connection);
-
+            preparedStatement.close();
         } catch (SQLException e) {
+            DBManager.getInstance().rollbackAndClose(connection);
             e.printStackTrace();
+        }finally {
+            DBManager.getInstance().commitAndClose(connection);
         }
         return services;
     }

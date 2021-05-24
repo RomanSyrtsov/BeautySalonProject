@@ -30,7 +30,7 @@ public class UrlPatternUtils {
     // ==> /
     public static String getUrlPattern(HttpServletRequest request) {
         ServletContext servletContext = request.getServletContext();
-        String servletPath = request.getServletPath();
+        String servletPath = request.getServletPath() + "?" +request.getQueryString();
         String pathInfo = request.getPathInfo();
 
         String urlPattern = null;
@@ -54,6 +54,6 @@ public class UrlPatternUtils {
                 return urlPattern;
             }
         }
-        return "/";
+        return "controller?command=/";
     }
 }

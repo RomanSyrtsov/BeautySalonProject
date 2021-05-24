@@ -11,6 +11,6 @@ public class LogoutCommand extends Command{
         request.getSession().invalidate();
 
         // Redrect to Home Page.
-        return "/WEB-INF/views/mainpage.jsp";
+        return "controller?command=/";
     }
 }

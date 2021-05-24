@@ -1,0 +1,19 @@
+<!--=============================================================
+Configuration file for Tomcat 6
+Data source and connection pool configuration
+(The default Tomcat's DBCP is used) 
+=============================================================-->
+
+<Context>
+
+
+  <Resource name="jdbc/BeautySalon"
+  			auth="Container" 
+  			type="javax.sql.DataSource"
+			maxActive="100" maxIdle="30" maxWait="10000"
+			username="root" password="root"
+			driverClassName="com.mysql.cj.jdbc.Driver"
+			defaultAutoCommit="false"
+			defaultTransactionIsolation="READ_COMMITTED"
+			url="jdbc:mysql://localhost:3306/beautysalon"/>
+</Context>

@@ -12,11 +12,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/masters")
-public class MastersListCommand extends Command {
+public class MastersListViewCommand extends Command {
     /*List<Master> masters;
     List<Service> services;
     @Override
@@ -59,34 +60,17 @@ public class MastersListCommand extends Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String sorting = request.getParameter("Sorting");
-        String filter = request.getParameter("Filter");
-
+        HttpSession session = request.getSession();
         List<Master> masters = (List<Master>) request.getSession().getAttribute("masters");
-        List<Service> services = ServiceDao.getAllServices();
+        List<Service> services = ServiceDao.getAllServices((String) session.getAttribute("locale"));
         request.setAttribute("services",services);
-        if(filter != null){
-            if(filter.equals("all")){
-                masters = MasterDao.getAllMasters();
-            }
-            else {
-                masters = MasterDao.getMastersByServicesId(Integer.parseInt(filter));
-            }
-        }
-        if(masters == null){
-            masters = MasterDao.getAllMasters();
-        }
-        if(sorting != null) {
 
-            if (sorting.equals("Sort by rate")) {
-                Sorter.sortMastersByRate(masters);
-            }
-            if (sorting.equals("Sort by names")) {
-                Sorter.sortMastersByName(masters);
-            }
+        if(masters == null){
+            masters = MasterDao.getAllMasters((String) session.getAttribute("locale"));
 
         }
         request.getSession().setAttribute("masters", masters);
+
         return "/WEB-INF/views/masters.jsp";
     }
 }

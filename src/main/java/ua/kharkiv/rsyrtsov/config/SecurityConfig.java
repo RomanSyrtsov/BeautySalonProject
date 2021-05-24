@@ -26,7 +26,7 @@ import java.util.Set;
             // Конфигурация для роли "CLIENT".
             List<String> urlPatterns1 = new ArrayList<String>();
 
-            urlPatterns1.add("/record");
+            urlPatterns1.add("/controller?command=record");
             //urlPatterns1.add("/services");
 
             mapConfig.put(ROLE_CLIENT, urlPatterns1);
