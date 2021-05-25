@@ -28,6 +28,10 @@
                 <li><a href="controller?command=/" class="nav-link px-2 text-secondary"><fmt:message key="header_jsp.home" bundle="${lang}"/></a></li>
                 <li><a href="controller?command=services" class="nav-link px-2 text-white"><fmt:message key="header_jsp.services" bundle="${lang}"/></a></li>
                 <li><a href="controller?command=masters" class="nav-link px-2 text-white"><fmt:message key="header_jsp.masters" bundle="${lang}"/></a></li>
+                <c:if test="${loginedUser.getRoleId() == 2}">
+                <li><a href="controller?command=schedule" class="nav-link px-2 text-white">Schedule</a></li>
+                </c:if>
+
                 <li><form action="controller?command=app_localization" method="post">
                     <button class="btn btn-outline-light me-2" type="submit" name="locale" value="ru"><fmt:message key="header_jsp.button_ru" bundle="${lang}"/></button>
                     <button class="btn btn-outline-light me-2" type="submit" name="locale" value="en"><fmt:message key="header_jsp.button_en" bundle="${lang}"/></button>
@@ -36,22 +40,17 @@
 
             <div class="text-end">
 
-                <%
-                    User user = (User)session.getAttribute("loginedUser");
-                    if(user != null){
-                %>
+                <c:if test="${loginedUser != null}">
                     <form action="controller?command=logout" method="post">
                     <button class="btn btn-outline-light me-2"><fmt:message key="header_jsp.logout" bundle="${lang}"/></button>
                     </form>
-
-                <%
-                }if(user == null){
-                %>
+                </c:if>
+                <c:if test="${loginedUser == null}">
 
                 <a href="controller?command=login" class="btn btn-outline-light me-2"><fmt:message key="header_jsp.login" bundle="${lang}"/></a>
                 <a href="controller?command=register" class="btn btn-outline-light me-2"><fmt:message key="header_jsp.register" bundle="${lang}"/></a>
 
-                <%}%>
+                </c:if>
 
                 <span style="color:red">[ ${loginedUser.login} ]</span>
                 <span style="color:red">${loginedUser.roleId}</span>

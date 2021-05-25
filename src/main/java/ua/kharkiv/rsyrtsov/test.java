@@ -24,16 +24,12 @@ public class test {
         map3.put("09:00",0);
         map3.put("09:30",0);
         map.put("02.01.21",map3);
-        int count = 0;
         for (String key: map.keySet()) {
+            System.out.println("========");
             System.out.println(key);
+            System.out.println("========");
             for (String key1: map.get(key).keySet()) {
-                if(count < map2.keySet().size()) {
                     System.out.println(key1 + ": " + map.get(key).get(key1));
-                    ++count;
-                }else {
-                    System.out.println(map.get(key).get(key1));
-                }
             }
         }
 

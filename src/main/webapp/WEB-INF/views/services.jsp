@@ -19,9 +19,14 @@
     <div class="container mt-5">
         <form action="controller?command=processservices" method="POST" >
             <select class="Filter_By_Masters_Form" name="Sorting">
-                <option value="all" onclick="this.form.submit()"></option>
+                <option value="1L" onclick="this.form.submit()"></option>
             <c:forEach items="${masters}"  var="list1">
-                <option name="${list1.getId()}" value="${list1.getId()}" onclick="this.form.submit()">${list1.getFirstname()} ${list1.getLastname()}</option>
+                <c:if test="${list1.getId() == sessionScope.master_id}">
+                <option selected="selected" name="${list1.getId()}" value="${list1.getId()}" onclick="this.form.submit()">${list1.getFirstname()} ${list1.getLastname()}</option>
+                </c:if>
+                <c:if test="${list1.getId() != sessionScope.master_id}">
+                    <option name="${list1.getId()}" value="${list1.getId()}" onclick="this.form.submit()">${list1.getFirstname()} ${list1.getLastname()}</option>
+                </c:if>
             </c:forEach>
             </select>
         </form>
@@ -33,7 +38,7 @@
                         <h5 class="card-title">${list1.getServiceName()}</h5>
                         <p class="card-text">Price: ${list1.getServicePrice()}</p>
                         <p class="card-text">Time(minutes): ${list1.getServiceTime()}</p>
-                        <c:if test="${loginedUser != null}">
+                        <c:if test="${loginedUser != null && loginedUser.getRoleId() == 1}">
                         <form action="controller?command=record_service" method="post">
                             <input name="Record" type="submit" value="${list1.getId()}"/>
                         </form>

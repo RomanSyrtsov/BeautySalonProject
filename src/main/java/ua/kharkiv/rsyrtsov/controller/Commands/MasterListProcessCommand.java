@@ -24,9 +24,11 @@ public class MasterListProcessCommand extends Command{
         if(filter != null){
             if(filter.equals("all")){
                 masters = MasterDao.getAllMasters((String) session.getAttribute("locale"));
+                session.setAttribute("serviceId", null);
             }
             else {
                 masters = MasterDao.getMastersByServicesId(Integer.parseInt(filter),(String) session.getAttribute("locale"));
+                session.setAttribute("serviceId", filter);
             }
         }
         if(sorting != null) {

@@ -16,8 +16,14 @@ public class LoginProcessCommand extends Command{
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
         User userAccount = UserDao.findUser(userName, password);
-        int clientId = UserDao.getClientIdByLogin(userName);
-        request.getSession().setAttribute("client_id",clientId);
+        if(userAccount.getRoleId() == 1) {
+            int clientId = UserDao.getClientIdByLogin(userName);
+            request.getSession().setAttribute("client_id", clientId);
+        }
+        if(userAccount.getRoleId() == 2){
+            int masterId = UserDao.getMasterIdByLogin(userName);
+            request.getSession().setAttribute("masterId",masterId);
+        }
         if (userAccount == null) {
             String errorMessage = "Invalid userName or Password";
 

@@ -16,7 +16,9 @@ public class UserDao {
     private static final String SELECT_CLIENT_ID_BY_LOGIN = "SELECT client.client_id " +
             "FROM client INNER JOIN user ON ( client.user_id = user.user_id) " +
             "WHERE (((user.login)=?));";
-
+    private static final String SELECT_MASTER_ID_BY_LOGIN = "SELECT master.master_id " +
+            "FROM master INNER JOIN user ON ( master.user_id = user.user_id) " +
+            "WHERE (((user.login)=?));";
     public static User findUser(String userName, String password) {
         Connection connection = null;
         User user = new User();
@@ -99,4 +101,25 @@ public class UserDao {
         return result;
     }
 
+    public static int getMasterIdByLogin(String login) {
+        int result = 0;
+        Connection connection = null;
+        try{
+            connection = DBManager.getInstance().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CLIENT_ID_BY_LOGIN);
+            preparedStatement.setString(1,login);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                result = rs.getInt("master_id");
+            }
+            rs.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            DBManager.getInstance().rollbackAndClose(connection);
+            e.printStackTrace();
+        }finally {
+            DBManager.getInstance().commitAndClose(connection);
+        }
+        return result;
+    }
 }

@@ -14,16 +14,15 @@ public class NewRecordCommand extends Command{
 
         HttpSession session = request.getSession();
         Integer clientId = (Integer) session.getAttribute("client_id");
-
         String masterId = (String) session.getAttribute("masterId");
         session.setAttribute("masterId",null);
         String serviceId = (String) session.getAttribute("service_id");
         session.setAttribute("service_id",null);
         int statusId = 2;
-        String date = (String) session.getAttribute("date");
-        session.setAttribute("date",null);
-        String time = (String) session.getAttribute("time");
-        session.setAttribute("time",null);
+        String date = request.getParameter("dateField");
+        System.out.println(date);
+        String time = request.getParameter("timeField");
+        System.out.println(time);
         RecordDao.insertNewRecord(clientId,masterId,serviceId,statusId,date,time);
         return "controller?command=/";
     }

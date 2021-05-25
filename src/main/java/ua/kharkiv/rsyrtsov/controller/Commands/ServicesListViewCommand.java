@@ -14,34 +14,6 @@ import java.util.List;
 
 
 public class ServicesListViewCommand extends Command {
-   /* List<Master> masters;
-    List<Service> services;
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher //
-                = this.getServletContext()//
-                .getRequestDispatcher("/WEB-INF/views/services.jsp");
-        services = ServiceDao.getAllServices();
-        masters = MasterDao.getAllMasters();
-        request.setAttribute("services",services);
-        request.setAttribute("masters",masters);
-        dispatcher.forward(request, response);
-
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("Sorting");
-        if(id.equals("all")){
-            doGet(request,response);
-        }
-            List<Service> serviceList = ServiceDao.getServiceByMasterId(Integer.parseInt(id));
-            request.setAttribute("services", serviceList);
-            request.setAttribute("masters", masters);
-        RequestDispatcher dispatcher //
-                = this.getServletContext()//
-                .getRequestDispatcher("/WEB-INF/views/services.jsp");
-        dispatcher.forward(request, response);
-    }*/
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

@@ -2,6 +2,7 @@ package ua.kharkiv.rsyrtsov.db.dao;
 
 import ua.kharkiv.rsyrtsov.db.DBManager;
 import ua.kharkiv.rsyrtsov.db.model.Master;
+import ua.kharkiv.rsyrtsov.db.model.Schedule;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +12,7 @@ import java.util.*;
 
 public class MasterDao {
 
-    private static final String SELECT_SCHEDULE_RECORD_ID_BY_MASTER_ID = "SELECT schedule.record_id\n" +
+    /*private static final String SELECT_SCHEDULE_RECORD_ID_BY_MASTER_ID = "SELECT schedule.record_id\n" +
             "FROM master INNER JOIN schedule ON master.master_id = schedule.master_id\n" +
             "WHERE (((schedule.master_id)=?) AND ((schedule.date)=?));";
 
@@ -22,7 +23,11 @@ public class MasterDao {
     private static final String SELECT_MASTER_SCHEDULE_TIMES_BY_MASTER_ID = "SELECT schedule.time " +
             "FROM schedule\n" +
             "GROUP BY schedule.time, schedule.master_id, schedule.date, schedule.record_id " +
-            "HAVING (((schedule.master_id)=?) AND ((schedule.date)=?) AND ((schedule.record_id) is NULL));";
+            "HAVING (((schedule.master_id)=?) AND ((schedule.date)=?) AND ((schedule.record_id) is NULL));";*/
+    private static final String SELECT_MASTER_SCHEDULE_BY_MASTER_ID = "SELECT schedule.time, schedule.date, schedule.record_id " +
+            "FROM schedule " +
+            "WHERE (((schedule.master_id)=?)) " +
+            "ORDER BY schedule.date,schedule.time ASC;\n";
 
     private static final String SELECT_ALL_MASTERS = "SELECT master.master_id, master_resource.firstname, master_resource.lastname, master.phone_number, speciality_resource.speciality_name, master.master_rate, master.user_id " +
             "FROM (specialty INNER JOIN (master LEFT JOIN master_resource ON master.master_id = master_resource.master_id) ON specialty.speciality_id = master.speciality_id) INNER JOIN speciality_resource ON specialty.speciality_id = speciality_resource.speciality_id " +
@@ -97,7 +102,7 @@ public class MasterDao {
         return masters;
     }
 
-    public static List<String> getMastersScheduleDatesById(int id){
+    /*public static List<String> getMastersScheduleDatesById(int id){
         List<String> schedules = new ArrayList<>();
         Connection connection = null;
         try {
@@ -117,17 +122,16 @@ public class MasterDao {
             DBManager.getInstance().commitAndClose(connection);
         }
         return schedules;
-    }
+    }*/
 
 
-    public static List<String> getMasterScheduleTimesById(int id, String date) {
+    /*public static List<String> getMasterScheduleTimesById(int id) {
         List<String> times = new ArrayList<>();
         Connection connection = null;
         try {
             connection = DBManager.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_MASTER_SCHEDULE_TIMES_BY_MASTER_ID);
             preparedStatement.setInt(1,id);
-            preparedStatement.setString(2,date);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()){
                 times.add(rs.getString("time"));
@@ -141,9 +145,36 @@ public class MasterDao {
             DBManager.getInstance().commitAndClose(connection);
         }
         return times;
-    }
+    }*/
+    public static List<Schedule> getMasterScheduleByMasterId(int id){
+        List<Schedule> schedules = new ArrayList<>();
 
-    public static List<Integer> getRecordDetailsIdsByMasterIdAndDate(int id,String date) {
+        Connection connection = null;
+        try{
+            connection = DBManager.getInstance().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_MASTER_SCHEDULE_BY_MASTER_ID);
+            preparedStatement.setInt(1,id);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                Schedule schedule = new Schedule();
+                schedule.setTime(rs.getString("time"));
+                schedule.setDate(rs.getString("date"));
+                schedule.setRecordId(rs.getInt("record_id"));
+                schedules.add(schedule);
+            }
+            rs.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            DBManager.getInstance().rollbackAndClose(connection);
+            e.printStackTrace();
+        }
+        finally {
+            DBManager.getInstance().commitAndClose(connection);
+        }
+
+        return schedules;
+    }
+    /*public static List<Integer> getRecordDetailsIdsByMasterIdAndDate(int id,String date) {
         List<Integer> records = new ArrayList<>();
         Connection connection =null;
         try {
@@ -165,5 +196,5 @@ public class MasterDao {
             DBManager.getInstance().commitAndClose(connection);
         }
         return records;
-    }
+    }*/
 }

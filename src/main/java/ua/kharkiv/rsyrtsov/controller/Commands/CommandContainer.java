@@ -39,11 +39,7 @@ public class CommandContainer {
 
         commands.put("record", new RecordViewCommand());
         commands.put("selectmaster", new RecordMasterScheduleProcessCommand());
-        commands.put("checkRecordTime", new RecordCheckTimeCommand());
         commands.put("makeRecord",new NewRecordCommand());
-
-        // admin commands
-        //commands.put("listOrders", new ListOrdersCommand());
 
         log.debug("Command container was successfully initialized");
         log.trace("Number of commands --> " + commands.size());

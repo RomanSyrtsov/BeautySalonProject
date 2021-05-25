@@ -17,10 +17,15 @@ public class ServicesListProcessCommand extends Command{
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String id = request.getParameter("Sorting");
         HttpSession session = request.getSession();
+        if(id != null && !id.equals("1L")){
+            session.setAttribute("master_id", id);
+        }else {
+            session.setAttribute("master_id",null);
+        }
         List<Service> serviceList;
         List<Master>masters = MasterDao.getAllMasters((String) session.getAttribute("locale"));
         request.setAttribute("masters",masters);
-        if(id.equals("all")){
+        if(id.equals("1L")){
             serviceList = ServiceDao.getAllServices((String) session.getAttribute("locale"));
         }
         else {

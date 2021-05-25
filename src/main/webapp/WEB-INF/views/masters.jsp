@@ -33,7 +33,12 @@
         <select class="Filter_By_Services_Form" name="Filter">
             <option value="all" onclick="this.form.submit()"></option>
             <c:forEach items="${services}"  var="list1">
-                <option name="${list1.getId()}" value="${list1.getId()}" onclick="this.form.submit()">${list1. getServiceName()}</option>
+                <c:if test="${list1.getId() == sessionScope.serviceId}">
+                <option selected="selected" name="${list1.getId()}" value="${list1.getId()}" onclick="this.form.submit()">${list1. getServiceName()}</option>
+                </c:if>
+                <c:if test="${list1.getId() != sessionScope.serviceId}">
+                    <option name="${list1.getId()}" value="${list1.getId()}" onclick="this.form.submit()">${list1. getServiceName()}</option>
+                </c:if>
             </c:forEach>
         </select>
     </form>
