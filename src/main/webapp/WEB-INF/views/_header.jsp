@@ -17,6 +17,7 @@
 
     <fmt:setBundle basename="app" var="lang"/>
 </head>
+
 <header class="p-3 bg-dark text-white">
 
     <div class="container">
@@ -26,16 +27,24 @@
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="controller?command=/" class="nav-link px-2 text-secondary"><fmt:message key="header_jsp.home" bundle="${lang}"/></a></li>
+
                 <li><a href="controller?command=services" class="nav-link px-2 text-white"><fmt:message key="header_jsp.services" bundle="${lang}"/></a></li>
+
                 <li><a href="controller?command=masters" class="nav-link px-2 text-white"><fmt:message key="header_jsp.masters" bundle="${lang}"/></a></li>
+
                 <c:if test="${loginedUser.getRoleId() == 2}">
                 <li><a href="controller?command=schedule" class="nav-link px-2 text-white">Schedule</a></li>
+                </c:if>
+
+                <c:if test="${loginedUser.getRoleId() == 3}">
+                    <li><a href="controller?command=adminRecords" class="nav-link px-2 text-white">Records</a></li>
                 </c:if>
 
                 <li><form action="controller?command=app_localization" method="post">
                     <button class="btn btn-outline-light me-2" type="submit" name="locale" value="ru"><fmt:message key="header_jsp.button_ru" bundle="${lang}"/></button>
                     <button class="btn btn-outline-light me-2" type="submit" name="locale" value="en"><fmt:message key="header_jsp.button_en" bundle="${lang}"/></button>
                 </form></li>
+
             </ul>
 
             <div class="text-end">
@@ -45,6 +54,7 @@
                     <button class="btn btn-outline-light me-2"><fmt:message key="header_jsp.logout" bundle="${lang}"/></button>
                     </form>
                 </c:if>
+
                 <c:if test="${loginedUser == null}">
 
                 <a href="controller?command=login" class="btn btn-outline-light me-2"><fmt:message key="header_jsp.login" bundle="${lang}"/></a>

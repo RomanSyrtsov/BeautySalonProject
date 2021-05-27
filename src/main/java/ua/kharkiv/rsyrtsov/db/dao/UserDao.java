@@ -106,7 +106,7 @@ public class UserDao {
         Connection connection = null;
         try{
             connection = DBManager.getInstance().getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CLIENT_ID_BY_LOGIN);
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_MASTER_ID_BY_LOGIN);
             preparedStatement.setString(1,login);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()){

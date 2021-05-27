@@ -6,7 +6,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @WebServlet("/")
-public class MainCommand extends Command {
+public class MainCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

@@ -1,5 +1,6 @@
-package ua.kharkiv.rsyrtsov.controller.Commands;
+package ua.kharkiv.rsyrtsov.controller.Commands.MasterCommands;
 
+import ua.kharkiv.rsyrtsov.controller.Commands.Command;
 import ua.kharkiv.rsyrtsov.db.dao.MasterDao;
 import ua.kharkiv.rsyrtsov.db.dao.ServiceDao;
 import ua.kharkiv.rsyrtsov.db.model.Master;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-public class MasterListProcessCommand extends Command{
+public class MasterListProcessCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String sorting = request.getParameter("Sorting");

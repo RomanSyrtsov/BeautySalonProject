@@ -20,6 +20,9 @@
 <body>
 <jsp:include page="_header.jsp"></jsp:include>
 <div class="container mt-5">
+
+    <h3>${serviceContainer.getServiceNameById(service_id)}</h3>
+    <h3>Price: ${serviceContainer.getServicePriceById(service_id)}</h3>
     <form action="controller?command=selectmaster" method="POST" >
 
         <label for="SelectId">Select master: </label>

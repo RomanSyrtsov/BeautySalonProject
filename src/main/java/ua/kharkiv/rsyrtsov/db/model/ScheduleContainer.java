@@ -24,6 +24,60 @@ public class ScheduleContainer {
         return recordId;
     }
 
+    public int getStatusByDateAndTime(String time, String date){
+        int statusId = 0;
+        for (Schedule schedule:schedules) {
+            if(schedule.getDate().equals(date) && schedule.getTime().equals(time)){
+                statusId = schedule.getStatusId();
+            }
+        }
+        return statusId;
+    }
+
+    public double getPriceById(int id){
+        double price = 0;
+        for (Schedule schedule:schedules) {
+            if(schedule.getRecordId() == id){
+                price = schedule.getService_price();
+            }
+        }
+        return price;
+    }
+
+    public int getPaymentInfoById(int id){
+        int isPayed = 0;
+        for (Schedule schedule:schedules) {
+            if(schedule.getRecordId() == id){
+                isPayed = schedule.getIsPayed();
+            }
+        }
+        return isPayed;
+    }
+
+    public List<String> getFreeDates(){
+        List<String> dates = new ArrayList<>();
+        for (Schedule schedule:schedules) {
+            if(schedule.getRecordId() == 0){
+                if(!dates.contains(schedule.getDate())) {
+                    dates.add(schedule.getDate());
+                }
+            }
+        }
+        return dates;
+    }
+
+    public List<String> getFreeTimeByDate(String date){
+        List<String> times = new ArrayList<>();
+        for (Schedule schedule:schedules){
+            if(schedule.getDate().equals(date) && schedule.getRecordId() == 0){
+                if(!times.contains(schedule.getTime())){
+                    times.add(schedule.getTime());
+                }
+            }
+        }
+        return times;
+    }
+
     public List<String> getTimes(){
         List<String> times = new ArrayList<>();
         for (Schedule schedule:schedules) {

@@ -18,7 +18,8 @@
     <jsp:include page="_header.jsp"></jsp:include>
     <div class="container mt-5">
         <form action="controller?command=processservices" method="POST" >
-            <select class="Filter_By_Masters_Form" name="Sorting">
+            <label for="Filter_By_Masters_Form">Filter by master</label>
+            <select id="Filter_By_Masters_Form" name="Sorting">
                 <option value="1L" onclick="this.form.submit()"></option>
             <c:forEach items="${masters}"  var="list1">
                 <c:if test="${list1.getId() == sessionScope.master_id}">
@@ -40,7 +41,8 @@
                         <p class="card-text">Time(minutes): ${list1.getServiceTime()}</p>
                         <c:if test="${loginedUser != null && loginedUser.getRoleId() == 1}">
                         <form action="controller?command=record_service" method="post">
-                            <input name="Record" type="submit" value="${list1.getId()}"/>
+                            <input name="Record" type="hidden" value="${list1.getId()}">
+                            <input type="submit" value="record"/>
                         </form>
                         </c:if>
                     </div>

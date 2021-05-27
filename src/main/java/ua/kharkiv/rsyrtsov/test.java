@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 
 public class test {
     public static void main(String[] args) {
-
         Map<String, Map<String,Integer>> map = new TreeMap<>();
         Map<String,Integer> map2 = new TreeMap<>();
         Map<String,Integer> map3 = new TreeMap<>();

@@ -1,5 +1,6 @@
-package ua.kharkiv.rsyrtsov.controller.Commands;
+package ua.kharkiv.rsyrtsov.controller.Commands.RecordCommands;
 
+import ua.kharkiv.rsyrtsov.controller.Commands.Command;
 import ua.kharkiv.rsyrtsov.db.dao.MasterDao;
 import ua.kharkiv.rsyrtsov.db.model.Schedule;
 import ua.kharkiv.rsyrtsov.db.model.ScheduleContainer;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.*;
 
-public class RecordMasterScheduleProcessCommand extends Command{
+public class RecordMasterScheduleProcessCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
