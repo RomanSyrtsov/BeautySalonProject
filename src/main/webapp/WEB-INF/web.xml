@@ -10,6 +10,17 @@
 
     <display-name>ST4Example1</display-name>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/views/error404.jsp</location> <!-- /src/main/webapp/error-404.html-->
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/views/error500.jsp</location> <!-- /src/main/webapp/error-404.html-->
+    </error-page>
+
+
     <!--============================================================
 	i18n support
 =============================================================-->
@@ -22,16 +33,13 @@
     <!-- this way we set the default locale (optional) -->
     <!-- the (preferable) browser's locale will be used if we don't set the default locale -->
 
-
     <!-- supported locales -->
     <context-param>
         <param-name>locales</param-name>
         <param-value>ru en</param-value>
     </context-param>
 
-    <listener>
-        <listener-class>ua.kharkiv.rsyrtsov.controller.listener.ContextListener</listener-class>
-    </listener>
+
 
 
 

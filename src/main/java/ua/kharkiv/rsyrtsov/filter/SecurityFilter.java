@@ -17,10 +17,13 @@ import java.util.List;
 @WebFilter("/*")
 public class SecurityFilter implements Filter {
 
-    public void init(FilterConfig config) throws ServletException {
+    public void init(FilterConfig config) {
+        System.out.println("init");
     }
 
     public void destroy() {
+
+        System.out.println("destroy");
     }
 
     @Override
@@ -64,7 +67,7 @@ public class SecurityFilter implements Filter {
                 // Сохранить текущую страницу для перенаправления (redirect) после успешного входа в систему.
                 int redirectId = AppUtils.storeRedirectAfterLoginUrl(req.getSession(), requestUri);
 
-                resp.sendRedirect(wrapRequest.getContextPath() + "/login?redirectId=" + redirectId);
+                resp.sendRedirect(wrapRequest.getContextPath() + "/controller?command=login");
                 return;
             }
 

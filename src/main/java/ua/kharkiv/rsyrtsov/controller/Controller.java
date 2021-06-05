@@ -3,6 +3,7 @@ package ua.kharkiv.rsyrtsov.controller;
 import org.apache.log4j.Logger;
 import ua.kharkiv.rsyrtsov.controller.Commands.Command;
 import ua.kharkiv.rsyrtsov.controller.Commands.CommandContainer;
+import ua.kharkiv.rsyrtsov.db.dao.exception.DAOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 @WebServlet("/controller")
@@ -39,7 +41,12 @@ public class Controller extends HttpServlet {
         log.trace("Obtained command --> " + command);
 
         // execute command and get forward address
-        String forward = command.execute(request, response);
+        String forward = "/WEB-INF/views/error.jsp";
+        try {
+            forward = command.execute(request, response);
+        } catch (DAOException e) {
+            request.setAttribute("error",e);
+        }
         log.trace("Forward address --> " + forward);
 
         log.debug("Controller finished, now go to forward address --> " + forward);
@@ -64,13 +71,20 @@ public class Controller extends HttpServlet {
         log.trace("Obtained command --> " + command);
 
         // execute command and get forward address
-        String forward = command.execute(request, response);
+        String forward = "/WEB-INF/views/error.jsp";
+        try {
+            forward = command.execute(request, response);
+        } catch (DAOException e) {
+            request.setAttribute("error", e);
+            request.getSession().setAttribute("error", e);
+        }
         log.trace("Forward address --> " + forward);
 
         log.debug("Controller finished, now go to forward address --> " + forward);
 
         // if the forward address is not null go to the address
         if (forward != null) {
+
             response.sendRedirect(forward);
         }
     }

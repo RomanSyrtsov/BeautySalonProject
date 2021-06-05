@@ -54,6 +54,6 @@ public class UrlPatternUtils {
                 return urlPattern;
             }
         }
-        return "controller?command=/";
+        return urlPattern;
     }
 }

@@ -34,14 +34,14 @@ import java.util.Set;
             // Конфигурация для роли "MASTER".
             List<String> urlPatterns2 = new ArrayList<String>();
 
-            urlPatterns2.add("/schedule");
+            urlPatterns2.add("/controller?command=schedule");
 
             mapConfig.put(ROLE_MASTER, urlPatterns2);
 
             // Конфигурация для роли "ADMIN".
             List<String> urlPatterns3 = new ArrayList<String>();
 
-            urlPatterns3.add("/recordslist");
+            urlPatterns3.add("/adminRecords");
 
             mapConfig.put(ROLE_ADMIN, urlPatterns3);
         }

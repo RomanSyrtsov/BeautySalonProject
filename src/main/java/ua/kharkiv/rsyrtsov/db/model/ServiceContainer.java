@@ -13,20 +13,20 @@ public class ServiceContainer {
         this.services = services;
     }
 
-    public double getServicePriceById(Long id){
+    public double getServicePriceById(Long id) {
         double price = 0;
-        for (Service service:services) {
-            if(service.getId() == id){
+        for (Service service : services) {
+            if (service.getId() == id) {
                 price = service.getServicePrice();
             }
         }
         return price;
     }
 
-    public String getServiceNameById(Long id){
+    public String getServiceNameById(Long id) {
         String serviceName = "";
-        for (Service service:services) {
-            if(service.getId() == id){
+        for (Service service : services) {
+            if (service.getId() == id) {
                 serviceName = service.getServiceName();
             }
         }

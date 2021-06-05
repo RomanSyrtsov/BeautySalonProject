@@ -10,7 +10,6 @@ public class SecurityUtils {
     // Проверить требует ли данный 'request' входа в систему или нет.
     public static boolean isSecurityPage(HttpServletRequest request) {
         String urlPattern = UrlPatternUtils.getUrlPattern(request);
-
         Set<String> roles = SecurityConfig.getAllAppRoles();
 
         for (String role : roles) {

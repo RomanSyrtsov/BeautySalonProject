@@ -1,6 +1,6 @@
 package ua.kharkiv.rsyrtsov.db.model;
 
-public class Schedule {
+public class Record {
     private int recordId;
     private String date;
     private String time;

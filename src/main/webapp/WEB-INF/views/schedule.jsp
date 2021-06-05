@@ -63,9 +63,6 @@
      <div class="row">
     <div><div style="width: 15px; height: 15px;
     display: inline-block;
-    margin-right: 5px; background-color: #ff6d81"></div>Canceled</div>
-    <div><div style="width: 15px; height: 15px;
-    display: inline-block;
     margin-right: 5px; background-color: #c6cfcf"></div>In process</div>
     <div><div style="width: 15px; height: 15px;
     display: inline-block;
