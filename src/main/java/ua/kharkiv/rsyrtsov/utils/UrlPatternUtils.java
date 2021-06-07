@@ -34,12 +34,7 @@ public class UrlPatternUtils {
         String pathInfo = request.getPathInfo();
 
         String urlPattern = null;
-        if (pathInfo != null) {
-            urlPattern = servletPath + "/*";
-            return urlPattern;
-        }
         urlPattern = servletPath;
-
         boolean has = hasUrlPattern(servletContext, urlPattern);
         if (has) {
             return urlPattern;
