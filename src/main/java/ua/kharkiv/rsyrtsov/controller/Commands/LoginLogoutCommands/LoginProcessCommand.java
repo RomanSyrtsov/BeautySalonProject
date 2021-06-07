@@ -2,7 +2,6 @@ package ua.kharkiv.rsyrtsov.controller.Commands.LoginLogoutCommands;
 
 import ua.kharkiv.rsyrtsov.controller.Commands.Command;
 import ua.kharkiv.rsyrtsov.db.dao.exception.DAOException;
-import ua.kharkiv.rsyrtsov.db.dao.impl.UserDaoImpl;
 import ua.kharkiv.rsyrtsov.db.model.User;
 import ua.kharkiv.rsyrtsov.service.ServiceProvider;
 import ua.kharkiv.rsyrtsov.service.UserService;
@@ -31,13 +30,13 @@ public class LoginProcessCommand implements Command {
 
             return "controller?command=login";
         }
-        if(userAccount.getRoleId() == 1) {
+        if (userAccount.getRoleId() == 1) {
             int clientId = userService.getClientIdByLogin(userName);
             request.getSession().setAttribute("client_id", clientId);
         }
-        if(userAccount.getRoleId() == 2){
+        if (userAccount.getRoleId() == 2) {
             int masterId = userService.getMasterIdByLogin(userName);
-            request.getSession().setAttribute("masterId",masterId);
+            request.getSession().setAttribute("masterId", masterId);
         }
 
 

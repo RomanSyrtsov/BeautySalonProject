@@ -20,6 +20,6 @@
 </head>
 <body>
 <jsp:include page="_header.jsp"></jsp:include>
-Жижа 404
+404
 </body>
 </html>

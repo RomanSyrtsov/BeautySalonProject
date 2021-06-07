@@ -31,6 +31,6 @@ public class NewRecordCommand implements Command {
         ServiceContainer serviceContainer = (ServiceContainer) session.getAttribute("serviceContainer");
         double price = serviceContainer.getServicePriceById(Long.parseLong(serviceId));
         recordService.insertNewRecord(clientId,masterId,serviceId,statusId,date,time,price,0);
-        return "controller?command=/";
+        return "controller?command=services";
     }
 }
