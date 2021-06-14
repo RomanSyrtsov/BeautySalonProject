@@ -3,7 +3,7 @@ package ua.kharkiv.rsyrtsov.utils;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import java.util.Properties;
+import java.util.*;
 
 public class Mailer {
     public static void send(String to,Long userId, String recordId) {
@@ -37,7 +37,25 @@ public class Mailer {
                             " <a href=http://localhost:8080/review?userId="+ userId +"&recordId="+recordId+">Click</a>",
                     "text/html");
 
-            Transport.send(message);
+            Calendar c = Calendar.getInstance();
+            Date now = new Date();
+            c.set(Calendar.HOUR_OF_DAY,12);
+            c.set(Calendar.MINUTE,00);
+            c.set(Calendar.SECOND,00);
+            c.set(Calendar.DAY_OF_MONTH,now.getDay());
+            c.add(Calendar.DAY_OF_MONTH,1);
+            Timer timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    try {
+                        Transport.send(message);
+                    } catch (MessagingException e) {
+                        e.printStackTrace();
+                    }
+                }
+            },c.getTime());
+
 
             System.out.println("Done");
 

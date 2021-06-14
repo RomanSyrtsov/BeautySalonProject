@@ -15,4 +15,6 @@ public interface UserDao {
 
     User getUserByRecordId(String recordId) throws DAOException;
 
+    User getUserById(String userId) throws DAOException;
+
 }

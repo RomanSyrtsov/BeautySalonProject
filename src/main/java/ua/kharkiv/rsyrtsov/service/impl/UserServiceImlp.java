@@ -60,4 +60,15 @@ public class UserServiceImlp implements UserService {
 
         return user;
     }
+
+    @Override
+    public User getUserById(String userId) throws DAOException {
+        User user;
+        DAOProvider daoProvider = DAOProvider.getInstance();
+        UserDao userDao = daoProvider.getUserDao();
+
+        user = userDao.getUserById(userId);
+
+        return user;
+    }
 }

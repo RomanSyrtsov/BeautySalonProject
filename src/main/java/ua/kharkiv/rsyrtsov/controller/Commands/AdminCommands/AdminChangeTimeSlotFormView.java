@@ -21,9 +21,9 @@ public class AdminChangeTimeSlotFormView implements Command {
         MasterService masterService = serviceProvider.getMasterService();
         String masterId = (String) session.getAttribute("masterId");
         if(session.getAttribute("masterId") != null){
-            RecordContainer scheduleContainer = new RecordContainer();
-            scheduleContainer.setSchedules(masterService.getMasterScheduleByMasterId(Integer.parseInt(masterId)));
-            req.setAttribute("schedules1",scheduleContainer);
+            RecordContainer recordContainer = new RecordContainer();
+            recordContainer.setSchedules(masterService.getMasterScheduleByMasterId(Integer.parseInt(masterId)));
+            req.setAttribute("schedules1",recordContainer);
         }
         return "/WEB-INF/views/changeTimeSlotForm.jsp";
     }

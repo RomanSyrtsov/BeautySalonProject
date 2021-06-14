@@ -2,7 +2,6 @@ package ua.kharkiv.rsyrtsov.controller.Commands.AdminCommands;
 
 import ua.kharkiv.rsyrtsov.controller.Commands.Command;
 import ua.kharkiv.rsyrtsov.db.dao.exception.DAOException;
-import ua.kharkiv.rsyrtsov.db.dao.impl.RecordDaoImpl;
 import ua.kharkiv.rsyrtsov.db.model.User;
 import ua.kharkiv.rsyrtsov.service.RecordService;
 import ua.kharkiv.rsyrtsov.service.ServiceProvider;
@@ -14,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class AdminRecordsProcessCommand implements Command {
     @Override
@@ -37,8 +39,9 @@ public class AdminRecordsProcessCommand implements Command {
             recordService.updateRecordPaymentById(recordId);
             session.setAttribute("masterId", null);
             User user = userService.getUserByRecordId(recordId);
-            String to="faradeygrangel@gmail.com";
+            String to="sadchatstories@gmail.com";
             Long id = user.getId();
+
             Mailer.send(to,id,recordId);
         }
         return previousRequest;

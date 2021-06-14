@@ -21,21 +21,16 @@
 <jsp:include page="_header.jsp"></jsp:include>
 <div class="container">
   <div class="d-flex justify-content-center bd-highlight mb-3">
-  <form action="/review" method="post">
-    <input name="recordIdField" type="hidden" value="${recordId}">
-    <table border="0">
-      <tr>
-        <td><label for="reviewText">Leave a review</label></td>
-        <td><input id = "reviewText" class="form-control" type="text" name="reviewText" value= "${user.login}" /> </td>
-      </tr>
-      <tr>
-        <td colspan ="2">
-          <input type="submit" value= "Submit" />
-        </td>
-      </tr>
-    </table>
 
-  </form>
+    <form action="/review" method="post">
+      <input name="recordIdField" type="hidden" value="${recordId}">
+      <div class="form-group">
+        <label for="reviewText">Leave a review</label>
+        <input id = "reviewText" class="form-control" type="text" name="reviewText" value= "${user.login}" />
+      </div>
+      <input class="btn btn-primary" type="submit" value= "Submit" />
+    </form>
+
   </div>
 </div>
 </body>

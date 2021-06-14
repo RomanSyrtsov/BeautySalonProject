@@ -23,14 +23,16 @@
 
 <div class="container mt-5">
     <form action="controller?command=processmasters" method="POST" >
-        <select class="Sorting_Form" name="Sorting">
+        <label for="sort">Sorting</label>
+        <select id="sort" class="Sorting_Form" name="Sorting">
             <option></option>
             <option action = "1" onclick="this.form.submit()" value="Sort by names"><fmt:message key="masters_jsp.sort_by_names" bundle="${lang}"/></option>
             <option action = "1" onclick="this.form.submit()" value="Sort by rate"><fmt:message key="masters_jsp.sort_by_rate" bundle="${lang}"/></option>
         </select>
     </form>
     <form action="controller?command=processmasters" method="POST" >
-        <select class="Filter_By_Services_Form" name="Filter">
+        <label for="filter">Filtration</label>
+        <select id = "filter" class="Filter_By_Services_Form" name="Filter">
             <option value="all" onclick="this.form.submit()"></option>
             <c:forEach items="${services}"  var="list1">
                 <c:if test="${list1.getId() == sessionScope.serviceId}">

@@ -21,7 +21,11 @@ public class AdminChangeTimeSlotFormProcessCommand implements Command {
         String previousRequest = (String)session.getAttribute("previous_request");
         String date = req.getParameter("SelectDate");
         String time = req.getParameter("SelectTime");
-        if(date != null && time == null) {
+        if(session.getAttribute("curDate") != null && !session.getAttribute("curDate").equals(date)){
+            session.setAttribute("curDate",date);
+            return previousRequest;
+        }
+        if(date != null && time == null ) {
             session.setAttribute("curDate",date);
             return previousRequest;
         }

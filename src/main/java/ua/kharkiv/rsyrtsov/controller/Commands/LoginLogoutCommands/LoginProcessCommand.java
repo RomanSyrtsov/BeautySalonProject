@@ -27,7 +27,6 @@ public class LoginProcessCommand implements Command {
 
             request.setAttribute("errorMessage", errorMessage);
 
-
             return "controller?command=login";
         }
         if (userAccount.getRoleId() == 1) {

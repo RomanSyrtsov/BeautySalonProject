@@ -27,7 +27,6 @@ import java.util.Set;
             List<String> urlPatterns1 = new ArrayList<String>();
 
             urlPatterns1.add("/controller?command=record");
-            //urlPatterns1.add("/services");
 
             mapConfig.put(ROLE_CLIENT, urlPatterns1);
 
@@ -41,7 +40,7 @@ import java.util.Set;
             // Конфигурация для роли "ADMIN".
             List<String> urlPatterns3 = new ArrayList<String>();
 
-            urlPatterns3.add("/adminRecords");
+            urlPatterns3.add("/controller?command=adminRecords");
 
             mapConfig.put(ROLE_ADMIN, urlPatterns3);
         }

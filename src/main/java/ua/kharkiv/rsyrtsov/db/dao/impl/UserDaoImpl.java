@@ -24,6 +24,7 @@ public class UserDaoImpl implements UserDao {
     private static final String SELECT_USER_BY_RECORD_ID = "SELECT user.user_id, user.login, user.password, user.email, user.role_id, user.firstname, user.lastname, user.phone_number " +
             "FROM (client INNER JOIN record ON client.client_id = record.client_id) INNER JOIN user ON client.user_id = user.user_id " +
             "WHERE (((record.record_id)=?));";
+    private static final String SELECT_USER_BY_ID = "SELECT * FROM user WHERE user_id = ?";
 
     public User findUser(String userName, String password) throws DAOException {
         Connection connection = null;
@@ -136,6 +137,36 @@ public class UserDaoImpl implements UserDao {
             connection = DBManager.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_RECORD_ID);
             preparedStatement.setString(1,recordId);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                user.setId(rs.getLong("user_id"));
+                user.setLogin(rs.getString("login"));
+                user.setPassword(rs.getString("password"));
+                user.setEmail(rs.getString("email"));
+                user.setRoleId(rs.getInt("role_id"));
+                user.setFirstname(rs.getString("firstname"));
+                user.setLastname(rs.getString("lastname"));
+                user.setPhone_number(rs.getString("phone_number"));
+            }
+            rs.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            DBManager.getInstance().rollbackAndClose(connection);
+            throw new DAOException(e);
+        }finally {
+            DBManager.getInstance().commitAndClose(connection);
+        }
+        return user;
+    }
+
+    @Override
+    public User getUserById(String userId) throws DAOException {
+        User user = new User();
+        Connection connection = null;
+        try {
+            connection = DBManager.getInstance().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);
+            preparedStatement.setString(1,userId);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()){
                 user.setId(rs.getLong("user_id"));

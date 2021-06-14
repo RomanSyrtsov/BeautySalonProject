@@ -22,25 +22,36 @@
     <div class="container mt-5">
         <div class="d-flex justify-content-center bd-highlight mb-3">
             <form action="controller?command=changeTimeSlotFormProcess" method="post">
-                <select name="SelectDate">
+                <table border="0">
+                    <tr>
+                        <td><label for="date">Select date</label></td>
+                <td><select id="date" class="form-select" name="SelectDate">
                     <c:forEach items="${schedules1.getFreeDates()}" var="date">
                         <c:if test="${date == sessionScope.curDate}">
-                            <option name="${date}" value="${date}" selected = "selected"onclick="this.form.submit()"/>${date}</option>
+
+                            <option name="${date}" value="${date}" selected = "selected"onclick="this.form.submit()">${date}</option>
                         </c:if>
                         <c:if test="${date != sessionScope.curDate}">
                             <option name="${date}" value="${date}" onclick="this.form.submit()"/>${date}</option>
                         </c:if>
                     </c:forEach>
-                </select>
-                ${curDate}
+                </select></td>
+                    </tr>
                 <c:if test="${curDate != null}">
-                    <select name="SelectTime">
+                    <tr>
+                        <td><label for="time">Select time</label></td>
+                    <td><select id="time" class="form-select" name="SelectTime">
                         <c:forEach items="${schedules1.getFreeTimeByDate(curDate)}" var="time">
                             <option name="${time}" value="${time}">${time}</option>
                         </c:forEach>
-                    </select>
+                    </select></td>
+                    </tr>
                 </c:if>
-                <input type="submit">
+                    <tr>
+                        <td>
+                <input type="submit"></td>
+                    </tr>
+                </table>
             </form>
         </div>
     </div>

@@ -64,9 +64,6 @@ public class SecurityFilter implements Filter {
 
                 String requestUri = req.getRequestURI();
 
-                // Сохранить текущую страницу для перенаправления (redirect) после успешного входа в систему.
-                int redirectId = AppUtils.storeRedirectAfterLoginUrl(req.getSession(), requestUri);
-
                 resp.sendRedirect(wrapRequest.getContextPath() + "/controller?command=login");
                 return;
             }

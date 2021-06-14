@@ -1,20 +1,0 @@
-
-d
-java:S3824"NReplace this "Map.get()" and condition with a call to "Map.computeIfAbsent()".(€Í§
-y
-java:S1488"cImmediately return this expression instead of assigning it to the temporary variable "loginedUser".(ù´ØØ
-l
-java:S3008"VRename this field "REDIRECT_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹†À˜
-U
-java:S1118	":Add a private constructor to hide the implicit public one.(Ê¤Û¡ùÿÿÿÿ
-o
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(´Ûƒ™
-t
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(±»œ…şÿÿÿÿ
-P
-java:S2441":Make "User" serializable or don't store it in the session.(óÈÆğ
-Q	java:S125"<This block of commented-out lines of code should be removed.(Ö†ì¢
-I
-java:S1172".Remove this unused method parameter "session".(í³Òôşÿÿÿÿ
-D
-java:S1172*".Remove this unused method parameter "session".(ŸşŞØ

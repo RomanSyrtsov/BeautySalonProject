@@ -14,4 +14,6 @@ public interface UserService {
 
     User getUserByRecordId(String recordId) throws DAOException;
 
+    User getUserById(String userId) throws DAOException;
+
 }
