@@ -34,16 +34,16 @@ public class Mailer {
             message.setSubject("Beauty service");
             message.setContent("<h2>Leave a review</h2>" +
                             "<h3>Please click to leave a review\n </h3> "+
-                            " <a href=http://localhost:8080/review?userId="+ userId +"&recordId="+recordId+">Click</a>",
+                            " <a href=http://localhost:8080/controller?command=review&userId="+ userId +"&recordId="+recordId+">Click</a>",
                     "text/html");
 
             Calendar c = Calendar.getInstance();
             Date now = new Date();
-            c.set(Calendar.HOUR_OF_DAY,12);
-            c.set(Calendar.MINUTE,00);
+            c.set(Calendar.HOUR_OF_DAY,22);
+            c.set(Calendar.MINUTE,14);
             c.set(Calendar.SECOND,00);
-            c.set(Calendar.DAY_OF_MONTH,now.getDay());
-            c.add(Calendar.DAY_OF_MONTH,1);
+           /* c.set(Calendar.DAY_OF_MONTH,now.getDay());
+            c.add(Calendar.DAY_OF_MONTH,1);*/
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override

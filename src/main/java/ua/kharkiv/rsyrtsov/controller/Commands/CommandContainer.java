@@ -16,6 +16,8 @@ import ua.kharkiv.rsyrtsov.controller.Commands.ScheduleCommands.ScheduleViewComm
 import ua.kharkiv.rsyrtsov.controller.Commands.ServicesCommands.ServicesListProcessCommand;
 import ua.kharkiv.rsyrtsov.controller.Commands.ServicesCommands.ServicesListViewCommand;
 import ua.kharkiv.rsyrtsov.controller.Commands.ServicesCommands.ServicesMakeRecordCommand;
+import ua.kharkiv.rsyrtsov.controller.ReviewCommands.ReviewProcess;
+import ua.kharkiv.rsyrtsov.controller.ReviewCommands.ReviewViewCommand;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -60,6 +62,9 @@ public class CommandContainer {
         commands.put("changeTimeSlotFormProcess", new AdminChangeTimeSlotFormProcessCommand());
         commands.put("cancelStatus", new AdminRecordsProcessCommand());
         commands.put("submitPayment", new AdminRecordsProcessCommand());
+
+        commands.put("review", new ReviewViewCommand());
+        commands.put("reviewProcess", new ReviewProcess());
 
         log.debug("Command container was successfully initialized");
         log.trace("Number of commands --> " + commands.size());

@@ -15,8 +15,6 @@ X
 (src/main/webapp/WEB-INF/views/record.jsp,0\2\029ec43a512a305b12830399e2aac89cc413c36b
 T
 $src/main/webapp/META-INF/context.xml,c\b\cbfb0d2e9b2b9fbf9d54374577c894a38643c6d0
-{
-Ksrc/main/java/ua/kharkiv/rsyrtsov/controller/Commands/CommandContainer.java,0\d\0da1e99818d7e35b442e05e104999624864d45ce
 Z
 *src/main/webapp/WEB-INF/views/mainpage.jsp,f\a\fa9f2f0b359b453de61572fa9bfcb17891bcf8a4
 V
@@ -41,8 +39,6 @@ p
 @src/main/java/ua/kharkiv/rsyrtsov/db/dao/impl/MasterDaoImpl.java,5\3\53f680951cdf7b65867974d934bc93d8d0781b06
 l
 <src/main/java/ua/kharkiv/rsyrtsov/service/MasterService.java,7\d\7dce6136fc73254475929526f81fc5ed2774fcd1
-u
-Esrc/main/java/ua/kharkiv/rsyrtsov/service/impl/MasterServiceImpl.java,5\2\527ee49c1080cf18eae2c4964c1cf50e078cc841
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 f
@@ -95,8 +91,6 @@ c
 3src/main/java/ua/kharkiv/rsyrtsov/db/DBManager.java,f\2\f21dcf41bbdacb6c1e135839b2091a918e45f38d
 i
 9src/main/java/ua/kharkiv/rsyrtsov/db/dao/DAOProvider.java,9\8\986b317893c48242dc6b208a3a31e912007b093f
-Š
-Zsrc/main/java/ua/kharkiv/rsyrtsov/controller/Commands/RecordCommands/NewRecordCommand.java,1\2\12312e75dd098424825cba811439d0d41bf1adec
 p
 @src/main/java/ua/kharkiv/rsyrtsov/db/dao/impl/RecordDaoImpl.java,7\b\7b26299a2f5186b672e121512c95c5223c153189
 l

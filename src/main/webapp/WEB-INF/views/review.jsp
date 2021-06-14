@@ -22,7 +22,7 @@
 <div class="container">
   <div class="d-flex justify-content-center bd-highlight mb-3">
 
-    <form action="/review" method="post">
+    <form action="controller?command=reviewProcess" method="post">
       <input name="recordIdField" type="hidden" value="${recordId}">
       <div class="form-group">
         <label for="reviewText">Leave a review</label>
