@@ -1,0 +1,5 @@
+
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬‡Çùÿÿÿÿ
+r	java:S116"XRename this field "service_price" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±Ë¯ûÿÿÿÿ
+c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷¼ãû
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬‡Çùÿÿÿÿ

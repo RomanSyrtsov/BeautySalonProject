@@ -1,0 +1,6 @@
+
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ýÖý^
+a
+java:S2441#"FMake "ServiceContainer" serializable or don't store it in the session.(‹©Ú€ÿÿÿÿÿ
+c
+java:S2441$"MMake "List" and its parameters serializable or don't store it in the session.(ÛŒ£à

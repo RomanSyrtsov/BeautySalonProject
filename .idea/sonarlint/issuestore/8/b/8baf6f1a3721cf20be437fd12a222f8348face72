@@ -1,0 +1,7 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ìš îøÿÿÿÿ
+f
+java:S1128"KRemove this unused import 'ua.kharkiv.rsyrtsov.db.dao.impl.ServiceDaoImpl'.(õ¨æÉÿÿÿÿÿ
+a
+java:S2441"FMake "ServiceContainer" serializable or don't store it in the session.(‹©Ú€ÿÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ìÚ–

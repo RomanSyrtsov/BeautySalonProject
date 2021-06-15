@@ -42,8 +42,8 @@ public class Mailer {
             c.set(Calendar.HOUR_OF_DAY,22);
             c.set(Calendar.MINUTE,14);
             c.set(Calendar.SECOND,00);
-           /* c.set(Calendar.DAY_OF_MONTH,now.getDay());
-            c.add(Calendar.DAY_OF_MONTH,1);*/
+            c.set(Calendar.DAY_OF_MONTH,now.getDay());
+            c.add(Calendar.DAY_OF_MONTH,1);
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override

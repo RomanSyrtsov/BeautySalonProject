@@ -23,7 +23,7 @@
 
 <div class="container mt-5">
     <form action="controller?command=processmasters" method="POST" >
-        <label for="sort">Sorting</label>
+        <label for="sort"><fmt:message key="masters_jsp.sorting" bundle="${lang}"/></label>
         <select id="sort" class="Sorting_Form" name="Sorting">
             <option></option>
             <option action = "1" onclick="this.form.submit()" value="Sort by names"><fmt:message key="masters_jsp.sort_by_names" bundle="${lang}"/></option>
@@ -31,7 +31,7 @@
         </select>
     </form>
     <form action="controller?command=processmasters" method="POST" >
-        <label for="filter">Filtration</label>
+        <label for="filter"><fmt:message key="masters_jsp.filtration" bundle="${lang}"/></label>
         <select id = "filter" class="Filter_By_Services_Form" name="Filter">
             <option value="all" onclick="this.form.submit()"></option>
             <c:forEach items="${services}"  var="list1">

@@ -22,10 +22,11 @@
 <div class="container mt-5">
 
     <h3>${serviceContainer.getServiceNameById(service_id)}</h3>
-    <h3>Price: ${serviceContainer.getServicePriceById(service_id)}</h3>
+    <h3><fmt:message key="services_jsp.price"
+                     bundle="${lang}"/>: ${serviceContainer.getServicePriceById(service_id)}</h3>
     <form action="controller?command=selectmaster" method="POST" >
 
-        <label for="SelectId">Select master: </label>
+        <label for="SelectId"><fmt:message key="services_jsp.filter_by_master" bundle="${lang}"/></label>
         <select  id="SelectId" class="Select_By_Masters_Form" name="SelectId">
             <option></option>
             <c:forEach items="${masters}"  var="list1">

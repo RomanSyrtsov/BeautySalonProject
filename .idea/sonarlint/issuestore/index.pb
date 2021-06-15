@@ -11,8 +11,6 @@ g
 7src/main/java/ua/kharkiv/rsyrtsov/db/model/Service.java,e\d\edc688027ca2a998f36eb44219c0dba51a0533f7
 •
 esrc/main/java/ua/kharkiv/rsyrtsov/controller/Commands/ServicesCommands/ServicesMakeRecordCommand.java,8\b\8bb13a7e507009151997de77f2c3fd2386ea607b
-X
-(src/main/webapp/WEB-INF/views/record.jsp,0\2\029ec43a512a305b12830399e2aac89cc413c36b
 T
 $src/main/webapp/META-INF/context.xml,c\b\cbfb0d2e9b2b9fbf9d54374577c894a38643c6d0
 Z
@@ -61,8 +59,6 @@ q
 Asrc/main/java/ua/kharkiv/rsyrtsov/db/dao/impl/ServiceDaoImpl.java,6\1\61aa70bdce547db8e6500ea29e1badb9f4fbb87c
 n
 >src/main/java/ua/kharkiv/rsyrtsov/service/ServiceProvider.java,2\1\21336542d7b6ec828f9cee9797d146c2966dc794
-Z
-*src/main/webapp/WEB-INF/views/services.jsp,0\0\00ccde70d63216d7c175d8dd72610a3ad99a2938
 m
 =src/main/java/ua/kharkiv/rsyrtsov/service/ServiceService.java,9\c\9c24551bd4c43e1ddc8eeee1662ae212ba33eb03
 v
@@ -99,8 +95,6 @@ l
 <src/main/java/ua/kharkiv/rsyrtsov/utils/UrlPatternUtils.java,6\7\67a0bacc0ee4bac678e3d626a95a7dccc8943323
 c
 3src/main/java/ua/kharkiv/rsyrtsov/utils/Sorter.java,5\8\580b4e36ad411b59216eef5209294e6f90168bb5
-Y
-)src/main/webapp/WEB-INF/views/_header.jsp,6\6\66d081b6af53406844e7698e7911d4959e60faeb
 Œ
 \src/main/java/ua/kharkiv/rsyrtsov/controller/Commands/LoginLogoutCommands/LogoutCommand.java,3\8\38cda5d406293cc0eae06a1d69cc8db4fa10c27a
 ’

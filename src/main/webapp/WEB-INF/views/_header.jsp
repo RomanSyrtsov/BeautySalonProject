@@ -33,11 +33,11 @@
                 <li><a href="controller?command=masters" class="nav-link px-2 text-white"><fmt:message key="header_jsp.masters" bundle="${lang}"/></a></li>
 
                 <c:if test="${loginedUser.getRoleId() == 2}">
-                <li><a href="controller?command=schedule" class="nav-link px-2 text-white">Schedule</a></li>
+                <li><a href="controller?command=schedule" class="nav-link px-2 text-white"><fmt:message key="header_jsp.schedule" bundle="${lang}"/></a></li>
                 </c:if>
 
                 <c:if test="${loginedUser.getRoleId() == 3}">
-                    <li><a href="controller?command=adminRecords" class="nav-link px-2 text-white">Records</a></li>
+                    <li><a href="controller?command=adminRecords" class="nav-link px-2 text-white"><fmt:message key="header_jsp.records" bundle="${lang}"/></a></li>
                 </c:if>
 
                 <li><form action="controller?command=app_localization" method="post">
