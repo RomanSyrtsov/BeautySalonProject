@@ -23,15 +23,9 @@ public class UrlPatternUtils {
         return false;
     }
 
-    // servletPath:
-    // ==> /spath
-    // ==> /spath/*
-    // ==> *.ext
-    // ==> /
     public static String getUrlPattern(HttpServletRequest request) {
         ServletContext servletContext = request.getServletContext();
         String servletPath = request.getServletPath() + "?" +request.getQueryString();
-        String pathInfo = request.getPathInfo();
 
         String urlPattern = null;
         urlPattern = servletPath;
