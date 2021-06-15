@@ -39,8 +39,8 @@ public class Mailer {
 
             Calendar c = Calendar.getInstance();
             Date now = new Date();
-            c.set(Calendar.HOUR_OF_DAY,22);
-            c.set(Calendar.MINUTE,14);
+            c.set(Calendar.HOUR_OF_DAY,12);
+            c.set(Calendar.MINUTE,00);
             c.set(Calendar.SECOND,00);
             c.set(Calendar.DAY_OF_MONTH,now.getDay());
             c.add(Calendar.DAY_OF_MONTH,1);

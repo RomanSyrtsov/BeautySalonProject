@@ -20,7 +20,6 @@ public class ScheduleViewCommand implements Command {
         ServiceProvider serviceProvider = ServiceProvider.getInstance();
         MasterService masterService = serviceProvider.getMasterService();
         Integer masterId = (Integer) session.getAttribute("masterId");
-        System.out.println(masterId);
         if(session.getAttribute("masterId") != null){
             RecordContainer scheduleContainer = new RecordContainer();
             scheduleContainer.setSchedules(masterService.getMasterScheduleByMasterId(masterId));
