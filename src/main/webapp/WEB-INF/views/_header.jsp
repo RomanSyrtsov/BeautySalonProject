@@ -1,6 +1,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="ua.kharkiv.rsyrtsov.db.model.User" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: farad

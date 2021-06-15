@@ -13,10 +13,6 @@ g
 esrc/main/java/ua/kharkiv/rsyrtsov/controller/Commands/ServicesCommands/ServicesMakeRecordCommand.java,8\b\8bb13a7e507009151997de77f2c3fd2386ea607b
 T
 $src/main/webapp/META-INF/context.xml,c\b\cbfb0d2e9b2b9fbf9d54374577c894a38643c6d0
-Z
-*src/main/webapp/WEB-INF/views/mainpage.jsp,f\a\fa9f2f0b359b453de61572fa9bfcb17891bcf8a4
-V
-&src/main/webapp/WEB-INF/views/head.jsp,3\6\36249161b2c98f0610ffc920aa959c0d18e0bdec
 Å
 Qsrc/main/java/ua/kharkiv/rsyrtsov/controller/Commands/AppLocalizationCommand.java,8\b\8baf6f1a3721cf20be437fd12a222f8348face72
 \
@@ -67,18 +63,10 @@ Fsrc/main/java/ua/kharkiv/rsyrtsov/service/impl/ServiceServiceImpl.java,8\9\899
 fsrc/main/java/ua/kharkiv/rsyrtsov/controller/Commands/ServicesCommands/ServicesListProcessCommand.java,a\2\a234bdf4d80c977c4567f8e61bce55e8bfe60511
 ì
 csrc/main/java/ua/kharkiv/rsyrtsov/controller/Commands/ServicesCommands/ServicesListViewCommand.java,4\1\4145d5a83b90dce282b2ad6827dc00cf769b98c0
-^
-.src/main/webapp/WEB-INF/views/userregister.jsp,3\c\3c35bca19716042b4f92901854156b9a4bfe4a8b
-X
-(src/main/webapp/WEB-INF/views/taglib.jsp,c\8\c89176026819c1f29100241dc3dcb24be31bb53f
 ó
 gsrc/main/java/ua/kharkiv/rsyrtsov/controller/Commands/ScheduleCommands/ScheduleChangeStatusCommand.java,7\5\7522e25a00bab0854fcbe86a0810a6aa5869cc2d
-Z
-*src/main/webapp/WEB-INF/views/error404.jsp,d\8\d8392e9ab63e7023ad2d10dd489c652036a115c7
 ^
 .src/main/webapp/WEB-INF/views/adminRecords.jsp,5\5\55e4027993cb59bbf2fe2f498f18d7cab29543ce
-[
-+src/main/webapp/WEB-INF/views/loginView.jsp,5\d\5de42c3cb4769bc17b59f1e45e5af8858299cd9c
 è
 _src/main/java/ua/kharkiv/rsyrtsov/controller/Commands/LoginLogoutCommands/LoginViewCommand.java,5\c\5c48c454a4396f0d00c78c3a7d3786c83fb05129
 è
@@ -113,8 +101,6 @@ dsrc/main/java/ua/kharkiv/rsyrtsov/controller/Commands/AdminCommands/AdminChange
 csrc/main/java/ua/kharkiv/rsyrtsov/controller/Commands/AdminCommands/AdminRecordsProcessCommand.java,5\5\5598034c3a80e91f03e072cd6cd6b9c38aa924d0
 d
 4src/main/webapp/WEB-INF/views/changeTimeSlotForm.jsp,d\b\dbed0ec6bbf50554016db022b678c6f50b4120f5
-l
-<src/main/java/ua/kharkiv/rsyrtsov/filter/EncodingFilter.java,6\a\6ac34e83eee802d44d6e1420220167cc1b331a6f
 í
 bsrc/main/java/ua/kharkiv/rsyrtsov/controller/Commands/LoginLogoutCommands/LoginProcessCommand.java,a\d\adc28162d1bad5de40e6c1c7234fac2c6cd817a8
 ê
@@ -135,8 +121,6 @@ O
 src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
 u
 Esrc/main/java/ua/kharkiv/rsyrtsov/service/impl/MasterServiceImpl.java,5\2\527ee49c1080cf18eae2c4964c1cf50e078cc841
-l
-<src/main/java/ua/kharkiv/rsyrtsov/filter/SecurityFilter.java,a\8\a8844ad666bf4c41ff2b21cc1dba0f8dba3902cb
 ä
 Zsrc/main/java/ua/kharkiv/rsyrtsov/controller/Commands/RecordCommands/NewRecordCommand.java,1\2\12312e75dd098424825cba811439d0d41bf1adec
 ~

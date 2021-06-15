@@ -61,9 +61,6 @@ public class SecurityFilter implements Filter {
             // Если пользователь еще не вошел в систему,
             // Redirect (перенаправить) к странице логина.
             if (loginedUser == null) {
-
-                String requestUri = req.getRequestURI();
-
                 resp.sendRedirect(wrapRequest.getContextPath() + "/controller?command=login");
                 return;
             }
